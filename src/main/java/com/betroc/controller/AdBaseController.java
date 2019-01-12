@@ -28,7 +28,7 @@ public abstract class AdBaseController <T extends Advertisement,W extends Advert
     }
 
     @PostMapping
-    public ResponseEntity<?> registerAd(@RequestBody T ad){
+    public ResponseEntity<?> registerAd(T ad){
         repository.save(ad);
          return ResponseEntity.accepted().body(new ApiResponse(true,"sucess"));
     }
