@@ -22,7 +22,7 @@ public abstract class AdBaseController <T extends Advertisement,W extends Advert
 
     @GetMapping
     //@Secured("ROLE_USER")
-    public Page getAllAds(@PageableDefault(size = 10, sort = "id") Pageable pageable){
+    public Page getAllAds(@PageableDefault(size = 20, sort = "id") Pageable pageable){
 
         return repository.findAll(pageable);
     }
