@@ -17,6 +17,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.http.HttpMethod;
 
 @Configuration //the class will be used JavaConfig as a source of bean definitions
 @EnableWebSecurity //enable web security in a project.
@@ -80,6 +81,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // WSCA provi
                         "/**/*.js")
                 .permitAll()
                 .antMatchers("/api/auth/**")// /api/auth/** is accessible without auth
+                .permitAll()
+                .antMatchers(HttpMethod.GET,"/api/donationAds","/api/DonationRequestAd","/api/exchangeAds")// /api/auth/** is accessible without auth
                 .permitAll()
                 .anyRequest()
                 .authenticated();
