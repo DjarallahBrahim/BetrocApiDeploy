@@ -27,11 +27,11 @@ public abstract class AdBaseController <T extends Advertisement,W extends Advert
         return repository.findAll(pageable);
     }
 
-    @GetMapping("/{category}")
+    @GetMapping("/category/{category}")
     //@Secured("ROLE_USER")
-    public Page getAllByCategory(@PathVariable("category") Long id, @PageableDefault(size = 10, sort = "id") Pageable pageable){
+    public Page getAllByCategory(@PathVariable("category") String category, @PageableDefault(size = 10, sort = "id") Pageable pageable){
 
-        return repository.findAllByCategory(pageable, id);
+        return repository.findAllByCategory_Title(pageable, category);
     }
 
     @PostMapping

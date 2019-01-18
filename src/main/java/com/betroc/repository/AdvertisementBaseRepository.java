@@ -13,7 +13,7 @@ import java.util.List;
 public interface AdvertisementBaseRepository <T extends Advertisement> extends JpaRepository<T ,Long> {
     Page<T> findAll(Pageable pageable);
 
-    Page<T> findAllByCategory(Pageable pageable, Long id);
+    Page<T> findAllByCategory_Title(Pageable pageable, String title);
 
 
 }
